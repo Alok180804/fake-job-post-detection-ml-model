@@ -82,11 +82,3 @@ git clone https://github.com/yourusername/fake-job-posting-detection.git
 cd fake-job-posting-detection
 pip install -r requirements.txt
 streamlit run app.py
-
-
-
-
-
-
-
-
