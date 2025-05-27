@@ -26,7 +26,7 @@ Detect fraudulent job postings using a machine learning model trained on job met
 
 ---
 
-## ⚙How It Works
+## How It Works
 
 ### Preprocessing
 - Missing value handling
