@@ -185,7 +185,7 @@ def create_feature_vector(user_inputs, feature_names, tfidf_vectorizer):
     return combined_features
 
 def main():
-    st.markdown('<h1 class="main-header">🔍 Job Posting Fraud Detection</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">Job Posting Fraud Detection</h1>', unsafe_allow_html=True)
     
     # Load model
     model, feature_names, tfidf_vectorizer = load_model()
@@ -319,7 +319,7 @@ def main():
                 if fraud_probability >= 0.7:
                     st.markdown(f'''
                     <div class="fraud-high">
-                        <h3>🚨 HIGH RISK</h3>
+                        <h3>HIGH RISK</h3>
                         <p><strong>Classification:</strong> Likely Fraudulent</p>
                         <p><strong>Recommendation:</strong> Exercise extreme caution. This job posting shows strong indicators of fraud.</p>
                     </div>
@@ -327,7 +327,7 @@ def main():
                 elif fraud_probability >= 0.4:
                     st.markdown(f'''
                     <div class="fraud-medium">
-                        <h3>⚠️ MEDIUM RISK</h3>
+                        <h3>MEDIUM RISK</h3>
                         <p><strong>Classification:</strong> Potentially Fraudulent</p>
                         <p><strong>Recommendation:</strong> Review carefully and verify company details before proceeding.</p>
                     </div>
@@ -335,41 +335,41 @@ def main():
                 else:
                     st.markdown(f'''
                     <div class="fraud-low">
-                        <h3>✅ LOW RISK</h3>
+                        <h3>LOW RISK</h3>
                         <p><strong>Classification:</strong> Likely Legitimate</p>
                         <p><strong>Recommendation:</strong> This job posting appears to be legitimate, but always exercise normal caution.</p>
                     </div>
                     ''', unsafe_allow_html=True)
             
             # Risk factors
-            st.subheader("🔍 Risk Analysis")
+            st.subheader("Risk Analysis")
             
             risk_factors = []
             if not title.strip():
-                risk_factors.append("❌ Missing job title")
+                risk_factors.append("Missing job title")
             
             if not company_profile.strip():
-                risk_factors.append("❌ Missing company profile")
+                risk_factors.append("Missing company profile")
             if not description.strip():
-                risk_factors.append("❌ Missing job description")
+                risk_factors.append("Missing job description")
             if employment_type == 'Select...':
-                risk_factors.append("❌ Employment type not specified")
+                risk_factors.append("Employment type not specified")
             if not country.strip():
-                risk_factors.append("❌ Missing location information")
+                risk_factors.append("Missing location information")
             if not salary_range.strip():
-                risk_factors.append("❌ Missing salary information")
+                risk_factors.append("Missing salary information")
             
             positive_factors = []
             if has_company_logo:
-                positive_factors.append("✅ Company logo present")
+                positive_factors.append("Company logo present")
             if has_questions:
-                positive_factors.append("✅ Screening questions present")
+                positive_factors.append("Screening questions present")
             if len(description) > 100:
-                positive_factors.append("✅ Detailed job description")
+                positive_factors.append("Detailed job description")
             if benefits.strip():
-                positive_factors.append("✅ Benefits information provided")
+                positive_factors.append("Benefits information provided")
             if salary_range.strip() and salary_range != "0-0":
-                positive_factors.append("✅ Salary range specified")
+                positive_factors.append("Salary range specified")
             
             col_risk, col_positive = st.columns(2)
             
@@ -379,7 +379,7 @@ def main():
                     for factor in risk_factors:
                         st.markdown(factor)
                 else:
-                    st.markdown("**✅ No obvious risk factors detected**")
+                    st.markdown("**No obvious risk factors detected**")
             
             with col_positive:
                 if positive_factors:
@@ -413,7 +413,7 @@ def main():
         """)
         
         st.markdown("---")
-        st.markdown("**🔒 Privacy Note:** All data is processed locally and not stored.")
+        st.markdown("**Privacy Note:** All data is processed locally and not stored.")
 
 if __name__ == "__main__":
     main()
